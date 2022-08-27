@@ -1,0 +1,5 @@
+Redimencionar pixels em png: https://www.resizepixel.com/pt/resize-image/
+
+Arquivo cheio dos blocos e assets (ñ sei se tem os sons): https://mcassets.matdoes.dev/versions/1.16/packages/minecraft/resourcepacks
+
+Link dos sons: https://mcassets.matdoes.dev/versions/1.16/packages/minecraft/sounds

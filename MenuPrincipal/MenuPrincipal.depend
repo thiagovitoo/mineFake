@@ -1,0 +1,6 @@
+# depslib dependency file v1.0
+1661036023 source:c:\users\ferna\documents\projetos codeblocks\menuprincipal\main.c
+	"raylib.h"
+	"stdio.h"
+	"locale.h"
+
