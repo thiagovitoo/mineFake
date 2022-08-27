@@ -3,22 +3,17 @@
 #define TAMANHO_BLOCOS 64
 
 void jogCima(int mapa[MAPA_L][MAPA_C], int *porta, int *bau, int *xJog, int *yJog, bool *animacao) {
-    *xJog = *xJog / TAMANHO_BLOCOS;
-    *yJog = *yJog / TAMANHO_BLOCOS;
-
-    if (mapa[*yJog - 1][*xJog] != 15) {
-        switch (mapa[*yJog - 1][*xJog]) {
+    if (mapa[(*yJog - 1) / TAMANHO_BLOCOS][*xJog / TAMANHO_BLOCOS] != 15) {
+        switch (mapa[(*yJog - 1) / TAMANHO_BLOCOS][*xJog / TAMANHO_BLOCOS]) {
             case 01 ... 10:
-                *porta = mapa[*yJog - 1][*xJog];
+                *porta = mapa[(*yJog - 1) / TAMANHO_BLOCOS][*xJog / TAMANHO_BLOCOS];
                 break;
             case 11 ... 13:
-                *bau = mapa[*yJog - 1][*xJog];
+                *bau = mapa[(*yJog - 1) / TAMANHO_BLOCOS][*xJog / TAMANHO_BLOCOS];
                 break;
         }
     }
-    *yJog = *yJog - 1;
-    *xJog = *xJog * TAMANHO_BLOCOS;
-    *yJog = *yJog * TAMANHO_BLOCOS;
+    *yJog = *yJog - TAMANHO_BLOCOS;
 }
 
 void jogBaixo(int mapa[MAPA_L][MAPA_C], int *porta, int *bau, int *xJog, int *yJog, bool *animacao) {
@@ -29,40 +24,35 @@ void jogBaixo(int mapa[MAPA_L][MAPA_C], int *porta, int *bau, int *xJog, int *yJ
         *bau = 0;
         *porta = 0;
     }
-    *yJog = *yJog + 1;
-    *xJog = *xJog * TAMANHO_BLOCOS;
-    *yJog = *yJog * TAMANHO_BLOCOS;
+    *yJog = *yJog + TAMANHO_BLOCOS;
 }
 
 void jogEsquerda(int mapa[MAPA_L][MAPA_C], int *porta, int *bau, int *xJog, int *yJog, bool *facingLeft, bool *animacao) {
     if (*facingLeft) {
-        *xJog = *xJog / TAMANHO_BLOCOS;
-        *yJog = *yJog / TAMANHO_BLOCOS;
 
-        if (mapa[*yJog][*xJog - 1] < 16) {
-            switch (mapa[*yJog][*xJog - 1]) {
+
+        if (mapa[*yJog / TAMANHO_BLOCOS][(*xJog / TAMANHO_BLOCOS) - 1] < 16) {
+            switch (mapa[*yJog / TAMANHO_BLOCOS][(*xJog / TAMANHO_BLOCOS) - 1]) {
                 case 00:
                     *porta = 0;
                     *bau = 0;
                     break;
                 case 01 ... 10:
-                    *porta = mapa[*yJog][*xJog - 1];
+                    *porta = mapa[*yJog / TAMANHO_BLOCOS][(*xJog / TAMANHO_BLOCOS) - 1];
                     *bau = 0;
                     break;
                 case 11 ... 13:
                     *porta = 0;
-                    *bau = mapa[*yJog][*xJog - 1];
+                    *bau = mapa[*yJog / TAMANHO_BLOCOS][(*xJog / TAMANHO_BLOCOS) - 1];
                     break;
                 case 15:
                     *porta = 0;
                     *bau= 0;
                     break;
             }
-
-            *xJog = *xJog - 1;
+            *xJog = *xJog - TAMANHO_BLOCOS;
         }
-        *xJog = *xJog * TAMANHO_BLOCOS;
-        *yJog = *yJog * TAMANHO_BLOCOS;
+
     } else {
         *facingLeft = true;
     }
@@ -72,33 +62,27 @@ void jogDireita(int mapa[MAPA_L][MAPA_C], int *porta, int *bau, int *xJog, int *
     if (*facingLeft) {
         *facingLeft = false;
     } else {
-        *xJog = *xJog / TAMANHO_BLOCOS;
-        *yJog = *yJog / TAMANHO_BLOCOS;
-
-        if (mapa[*yJog][*xJog + 1] < 16) {
-            switch (mapa[*yJog][*xJog + 1]) {
+        if (mapa[*yJog / TAMANHO_BLOCOS][(*xJog / TAMANHO_BLOCOS) + 1] < 16) {
+            switch (mapa[*yJog / TAMANHO_BLOCOS][(*xJog / TAMANHO_BLOCOS) + 1]) {
                 case 00:
                     *porta = 0;
                     *bau = 0;
                     break;
                 case 01 ... 10:
-                    *porta = mapa[*yJog][*xJog + 1];
+                    *porta = mapa[*yJog / TAMANHO_BLOCOS][(*xJog / TAMANHO_BLOCOS) + 1];
                     *bau = 0;
                     break;
                 case 11 ... 13:
                     *porta = 0;
-                    *bau = mapa[*yJog][*xJog + 1];
+                    *bau = mapa[*yJog / TAMANHO_BLOCOS][(*xJog / TAMANHO_BLOCOS) + 1];
                     break;
                 case 15:
                     *porta = 0;
                     *bau = 0;
                     break;
             }
-            *xJog = *xJog + 1;
+            *xJog = *xJog + TAMANHO_BLOCOS;
         }
-        *xJog = *xJog * TAMANHO_BLOCOS;
-        *yJog = *yJog * TAMANHO_BLOCOS;
-
     }
 
 }

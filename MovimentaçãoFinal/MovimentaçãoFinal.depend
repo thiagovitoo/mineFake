@@ -23,3 +23,23 @@
 
 1661537946 c:\users\ferna\documents\projetos codeblocks\movimentaçãofinal\functions\animation.c
 
+1661554354 source:c:\users\ferna\documents\projetos codeblocks\minefake\movimentaçãofinal\main.c
+	<stdio.h>
+	<ctype.h>
+	<string.h>
+	<raylib.h>
+	<locale.h>
+	<time.h>
+	"maps/mapa1.c"
+	"functions/texture.c"
+	"functions/movimentos.c"
+	"functions/animation.c"
+
+1661533755 c:\users\ferna\documents\projetos codeblocks\minefake\movimentaçãofinal\maps\mapa1.c
+
+1661533445 c:\users\ferna\documents\projetos codeblocks\minefake\movimentaçãofinal\functions\texture.c
+
+1661633501 c:\users\ferna\documents\projetos codeblocks\minefake\movimentaçãofinal\functions\movimentos.c
+
+1661632161 c:\users\ferna\documents\projetos codeblocks\minefake\movimentaçãofinal\functions\animation.c
+
