@@ -2,7 +2,7 @@
 #define MAPA_C 120
 #define TAMANHO_BLOCOS 64
 
-void jogCima(int mapa[MAPA_L][MAPA_C], int *porta, int *bau, int *xJog, int *yJog, bool *animacao) {
+void jogCima(int mapa[MAPA_L][MAPA_C], int *porta, int *bau, int *xJog, int *yJog, bool *animacaoVertical, int *dMov, int *frameCounter) {
     if (mapa[(*yJog - 1) / TAMANHO_BLOCOS][*xJog / TAMANHO_BLOCOS] != 15) {
         switch (mapa[(*yJog - 1) / TAMANHO_BLOCOS][*xJog / TAMANHO_BLOCOS]) {
             case 01 ... 10:
@@ -13,24 +13,19 @@ void jogCima(int mapa[MAPA_L][MAPA_C], int *porta, int *bau, int *xJog, int *yJo
                 break;
         }
     }
-    *yJog = *yJog - TAMANHO_BLOCOS;
+    movVertical(yJog, animacaoVertical, -1, frameCounter, dMov);
 }
 
-void jogBaixo(int mapa[MAPA_L][MAPA_C], int *porta, int *bau, int *xJog, int *yJog, bool *animacao) {
-    *xJog = *xJog / TAMANHO_BLOCOS;
-    *yJog = *yJog / TAMANHO_BLOCOS;
-
-    if (mapa[*yJog][*xJog] != 15) {
+void jogBaixo(int mapa[MAPA_L][MAPA_C], int *porta, int *bau, int *xJog, int *yJog, bool *animacaoVertical, int *dMov, int *frameCounter) {
+    if (mapa[*yJog / TAMANHO_BLOCOS][*xJog / TAMANHO_BLOCOS] != 15) {
         *bau = 0;
         *porta = 0;
     }
-    *yJog = *yJog + TAMANHO_BLOCOS;
+    movVertical(yJog, animacaoVertical, 1, frameCounter, dMov);
 }
 
-void jogEsquerda(int mapa[MAPA_L][MAPA_C], int *porta, int *bau, int *xJog, int *yJog, bool *facingLeft, bool *animacao) {
+void jogEsquerda(int mapa[MAPA_L][MAPA_C], int *porta, int *bau, int *xJog, int *yJog, bool *facingLeft, bool *animacaoHorizontal, int *dMov, int *frameCounter) {
     if (*facingLeft) {
-
-
         if (mapa[*yJog / TAMANHO_BLOCOS][(*xJog / TAMANHO_BLOCOS) - 1] < 16) {
             switch (mapa[*yJog / TAMANHO_BLOCOS][(*xJog / TAMANHO_BLOCOS) - 1]) {
                 case 00:
@@ -50,7 +45,7 @@ void jogEsquerda(int mapa[MAPA_L][MAPA_C], int *porta, int *bau, int *xJog, int 
                     *bau= 0;
                     break;
             }
-            *xJog = *xJog - TAMANHO_BLOCOS;
+            movHorizontal(xJog, animacaoHorizontal, -1, frameCounter, dMov);
         }
 
     } else {
@@ -58,7 +53,7 @@ void jogEsquerda(int mapa[MAPA_L][MAPA_C], int *porta, int *bau, int *xJog, int 
     }
 }
 
-void jogDireita(int mapa[MAPA_L][MAPA_C], int *porta, int *bau, int *xJog, int *yJog, bool *facingLeft, bool *animacao) {
+void jogDireita(int mapa[MAPA_L][MAPA_C], int *porta, int *bau, int *xJog, int *yJog, bool *facingLeft, bool *animacaoHorizontal, int *dMov, int *frameCounter) {
     if (*facingLeft) {
         *facingLeft = false;
     } else {
@@ -81,14 +76,14 @@ void jogDireita(int mapa[MAPA_L][MAPA_C], int *porta, int *bau, int *xJog, int *
                     *bau = 0;
                     break;
             }
-            *xJog = *xJog + TAMANHO_BLOCOS;
+            movHorizontal(xJog, animacaoHorizontal, 1, frameCounter, dMov);
         }
     }
 
 }
 
 
-void abrePorta(int mapa[MAPA_L][MAPA_C], int *porta, int *xJog, int *yJog, int linhas, int colunas, bool *animacao) {
+void abrePorta(int mapa[MAPA_L][MAPA_C], int *porta, int *xJog, int *yJog, int linhas, int colunas) {
     int i = 0, j = 0, xPorta, yPorta;
     bool rodar = true;
 
@@ -111,7 +106,7 @@ void abrePorta(int mapa[MAPA_L][MAPA_C], int *porta, int *xJog, int *yJog, int l
 }
 
 
-void abreBau(int mapa[MAPA_L][MAPA_C], int *bau, int *xJog, int *yJog, bool *animacao) {
+void abreBau(int mapa[MAPA_L][MAPA_C], int *bau, int *xJog, int *yJog) {
 
     *xJog = *xJog / TAMANHO_BLOCOS;
     *yJog = *yJog / TAMANHO_BLOCOS;
@@ -132,12 +127,8 @@ void abreBau(int mapa[MAPA_L][MAPA_C], int *bau, int *xJog, int *yJog, bool *ani
 
 int altura(int mapa[MAPA_L][MAPA_C], int *xJog, int *yJog) {
     int h = 0;
-    *xJog = *xJog / TAMANHO_BLOCOS;
-    *yJog = *yJog / TAMANHO_BLOCOS;
-    while (mapa[*yJog + (h + 1)][*xJog] < 15) {
+    while (mapa[(*yJog / TAMANHO_BLOCOS) + (h + 1)][(*xJog / TAMANHO_BLOCOS)] < 15) {
         h += 1;
     }
-    *xJog = *xJog * TAMANHO_BLOCOS;
-    *yJog = *yJog * TAMANHO_BLOCOS;
     return h;
 }

@@ -23,9 +23,9 @@ void busca_porta(int mapa[MAPA_L][MAPA_C], int linhas, int colunas, char porta, 
 
 int main() {
     int mapa[MAPA_L][MAPA_C] = { 0 }, porta, bau, linhas, colunas, xJog, yJog, i;
-    bool close = false, facingLeft, animGravidade = false, caindo = false, animacao = false;
+    bool close = false, facingLeft, caindo = false, animacaoHorizontal = false, animacaoVertical = false;
     Texture2D textura[NUM_TEXTURAS];
-    int frameCounter = 0, dQueda = 0, tQueda = 0, h = 0;
+    int frameCounter = 0, dMov = 0, tMov = 0, h = 0, direcao;
 
     setlocale(LC_ALL, "Portuguese");
     InitWindow(LARGURA, ALTURA, "raylib [core] example - basic window");
@@ -37,35 +37,46 @@ int main() {
     carregaMapa(mapa, &linhas, &colunas, &porta, &bau, &xJog, &yJog, &facingLeft);
     while (!close && !WindowShouldClose()) {
         if (h > 0) {
-            gravidade(mapa, &xJog, &yJog, &animGravidade, h, &frameCounter, &dQueda, &tQueda, &bau, &porta);
+            gravidade(mapa, &xJog, &yJog, &caindo, h, &frameCounter, &dMov, &tMov, &bau, &porta);
+        }
+        if (animacaoHorizontal) {
+            movHorizontal(&xJog, &animacaoHorizontal, direcao, &frameCounter, &dMov);
         }
 
-        if (!animGravidade) {
-            if (IsKeyPressed(KEY_UP) || IsKeyPressed(KEY_W)){
+        if (animacaoVertical) {
+            //printf("a");
+            movVertical(&yJog, &animacaoVertical, direcao, &frameCounter, &dMov);
+        }
+
+        if (!caindo && !animacaoHorizontal && !animacaoVertical) {
+            if (IsKeyDown(KEY_UP) || IsKeyDown(KEY_W)){
                 if (bau != 0) {
-                    abreBau(mapa, &bau, &xJog, &yJog, &animacao);
+                    abreBau(mapa, &bau, &xJog, &yJog);
                 }
 
                 if (porta != 0) {
-                    abrePorta(mapa, &porta, &xJog, &yJog, linhas, colunas, &animacao);
+                    abrePorta(mapa, &porta, &xJog, &yJog, linhas, colunas);
                 }
 
                 if (mapa[yJog / TAMANHO_BLOCOS][xJog / TAMANHO_BLOCOS] == 15) {
-                    jogCima(mapa, &porta, &bau, &xJog, &yJog, &animacao);
+                    direcao = -1;
+                    jogCima(mapa, &porta, &bau, &xJog, &yJog, &animacaoVertical, &dMov, &frameCounter);
                 }
             }
-            if (IsKeyPressed(KEY_DOWN) || IsKeyPressed(KEY_S)) {
+            if (IsKeyDown(KEY_DOWN) || IsKeyDown(KEY_S)) {
                 if (mapa[yJog /TAMANHO_BLOCOS + 1][xJog / TAMANHO_BLOCOS] == 15) {
-                    jogBaixo(mapa, &porta, &bau, &xJog, &yJog, &animacao);
+                    direcao = 1;
+                    jogBaixo(mapa, &porta, &bau, &xJog, &yJog, &animacaoVertical, &dMov, &frameCounter);
                 }
             }
-            if (IsKeyPressed(KEY_LEFT) || IsKeyPressed(KEY_A)) {
-                //printf ("\n%d\n\n", mapa[yJog / TAMANHO_BLOCOS][xJog / TAMANHO_BLOCOS - 1]);
-                jogEsquerda(mapa, &porta, &bau, &xJog, &yJog, &facingLeft, &animacao);
-                //printf("%d\n%d\n\n", yJog, xJog);
+            if (IsKeyDown(KEY_LEFT) || IsKeyDown(KEY_A)) {
+                direcao = -1;
+                jogEsquerda(mapa, &porta, &bau, &xJog, &yJog, &facingLeft, &animacaoHorizontal, &dMov, &frameCounter);
             }
-            if (IsKeyPressed(KEY_RIGHT) || IsKeyPressed(KEY_D)) {
-                jogDireita(mapa, &porta, &bau, &xJog, &yJog, &facingLeft, &animacao);
+            if (IsKeyDown(KEY_RIGHT) || IsKeyDown(KEY_D)) {
+                direcao = 1;
+                //printf("\n%d\n", direcao);
+                jogDireita(mapa, &porta, &bau, &xJog, &yJog, &facingLeft, &animacaoHorizontal, &dMov, &frameCounter);
             }
             if (IsKeyPressed(KEY_SPACE)) {
                 //printf("\n%d\n\n", altura(mapa, &xJog, &yJog));
