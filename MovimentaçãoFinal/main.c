@@ -36,6 +36,9 @@ int main() {
 
     carregaMapa(mapa, &linhas, &colunas, &porta, &bau, &xJog, &yJog, &facingLeft);
     while (!close && !WindowShouldClose()) {
+        if (!caindo){
+            h = altura(mapa, &xJog, &yJog);
+        }
         if (h > 0) {
             gravidade(mapa, &xJog, &yJog, &caindo, h, &frameCounter, &dMov, &tMov, &bau, &porta);
         }
@@ -44,7 +47,6 @@ int main() {
         }
 
         if (animacaoVertical) {
-            //printf("a");
             movVertical(&yJog, &animacaoVertical, direcao, &frameCounter, &dMov);
         }
 
@@ -82,7 +84,6 @@ int main() {
                 //printf("\n%d\n\n", altura(mapa, &xJog, &yJog));
                 //close = true;
             }
-            h = altura(mapa, &xJog, &yJog);
         }
 
 

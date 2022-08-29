@@ -1,6 +1,4 @@
-#define MAPA_L 30
-#define MAPA_C 120
-#define TAMANHO_BLOCOS 64
+
 
 void jogCima(int mapa[MAPA_L][MAPA_C], int *porta, int *bau, int *xJog, int *yJog, bool *animacaoVertical, int *dMov, int *frameCounter) {
     if (mapa[(*yJog - 1) / TAMANHO_BLOCOS][*xJog / TAMANHO_BLOCOS] != 15) {

@@ -50,8 +50,10 @@ void gravidade(int mapa[MAPA_L][MAPA_C], int *xJog, int *yJog, bool *caindo, int
 
         if (*dMov < h * TAMANHO_BLOCOS) {
             *yJog += accQueda * *tMov;
+            printf("\n%d\n", *yJog);
         } else {
             *yJog += h * TAMANHO_BLOCOS - (*dMov - accQueda * *tMov);
+            printf("\n%d\n", *yJog);
             *caindo = false;
             *frameCounter = 0;
             *dMov = 0;
