@@ -1,0 +1,211 @@
+# depslib dependency file v1.0
+1665109576 source:c:\users\ferna\documents\projetos codeblocks\minefake\movimentacaoatualizado\src\jogador.c
+	"../headers/jogador.h"
+
+1665106044 source:c:\users\ferna\documents\projetos codeblocks\minefake\movimentacaoatualizado\src\animacao.c
+	"../headers/animacao.h"
+
+1665104842 source:c:\users\ferna\documents\projetos codeblocks\minefake\movimentacaoatualizado\src\mapa.c
+	"../headers/mapa.h"
+	<stdio.h>
+	<raylib.h>
+
+1665105394 source:c:\users\ferna\documents\projetos codeblocks\minefake\movimentacaoatualizado\src\movimentos.c
+	"../headers/movimentos.h"
+
+1664082562 source:c:\users\ferna\documents\projetos codeblocks\minefake\movimentacaoatualizado\src\coordenada.c
+	"../headers/coordenada.h"
+
+1664081916 c:\users\ferna\documents\projetos codeblocks\minefake\movimentacaoatualizado\headers\coordenada.h
+
+1665093764 source:c:\users\ferna\documents\projetos codeblocks\minefake\movimentacaoatualizado\src\textura.c
+	"../headers/textura.h"
+
+1665110093 source:c:\users\ferna\documents\projetos codeblocks\minefake\movimentacaoatualizado\main.c
+	<stdio.h>
+	<ctype.h>
+	<string.h>
+	<raylib.h>
+	<locale.h>
+	<stdbool.h>
+	<time.h>
+	"headers/coordenada.h"
+	"headers/jogador.h"
+	"headers/mapa.h"
+	"headers/menu.h"
+	"headers/animacao.h"
+	"headers/movimentos.h"
+	"headers/textura.h"
+	"headers/item.h"
+
+1665109553 c:\users\ferna\documents\projetos codeblocks\minefake\movimentacaoatualizado\headers\jogador.h
+	<stdio.h>
+	<stdbool.h>
+	<raylib.h>
+	"coordenada.h"
+	"textura.h"
+
+1665105701 c:\users\ferna\documents\projetos codeblocks\minefake\movimentacaoatualizado\headers\mapa.h
+	<raylib.h>
+	<stdbool.h>
+	"coordenada.h"
+	"jogador.h"
+	"textura.h"
+
+1665105677 c:\users\ferna\documents\projetos codeblocks\minefake\movimentacaoatualizado\headers\animacao.h
+	<stdbool.h>
+	"mapa.h"
+
+1665104464 c:\users\ferna\documents\projetos codeblocks\minefake\movimentacaoatualizado\headers\movimentos.h
+	<stdbool.h>
+	<raylib.h>
+	"mapa.h"
+	"animacao.h"
+	"item.h"
+
+1665094654 c:\users\ferna\documents\projetos codeblocks\minefake\movimentacaoatualizado\headers\textura.h
+	<raylib.h>
+
+1665094030 c:\users\ferna\documents\projetos codeblocks\minefake\movimentacaoatualizado\headers\item.h
+	<raylib.h>
+	"mapa.h"
+
+1665096993 source:c:\users\ferna\documents\projetos codeblocks\minefake\movimentacaoatualizado\src\item.c
+	"../headers/item.h"
+
+1665105596 source:c:\users\ferna\documents\projetos codeblocks\minefake\movimentacaoatualizado\src\sound.c
+	"../headers/sound.h"
+
+1664740047 c:\users\ferna\documents\projetos codeblocks\minefake\movimentacaoatualizado\headers\sound.h
+	<raylib.h>
+
+1665101739 source:c:\users\ferna\documents\projetos codeblocks\minefake\movimentacaoatualizado\src\save.c
+	"../headers/save.h"
+
+1665101849 c:\users\ferna\documents\projetos codeblocks\minefake\movimentacaoatualizado\headers\save.h
+	"mapa.h"
+	"textura.h"
+
+1665109887 source:c:\users\ferna\documents\projetos codeblocks\minefake\movimentacaoatualizado\src\menu.c
+	"../headers/menu.h"
+
+1665109826 c:\users\ferna\documents\projetos codeblocks\minefake\movimentacaoatualizado\headers\menu.h
+	"raylib.h"
+	"stdio.h"
+	"mapa.h"
+	"save.h"
+	"rank.h"
+
+1665110909 c:\users\ferna\documents\projetos codeblocks\minefake\movimentacaoatualizado\headers\rank.h
+	"jogador.h"
+
+1665111090 source:c:\users\ferna\documents\projetos codeblocks\minefake\movimentacaoatualizado\src\rank.c
+	<stdio.h>
+	"../headers/rank.h"
+
+1665106044 source:c:\users\ferna\documents\projetos codeblocks\minefake\minefake\src\animacao.c
+	"../headers/animacao.h"
+
+1665105677 c:\users\ferna\documents\projetos codeblocks\minefake\minefake\headers\animacao.h
+	<stdbool.h>
+	"mapa.h"
+
+1665155835 c:\users\ferna\documents\projetos codeblocks\minefake\minefake\headers\mapa.h
+	<raylib.h>
+	<stdbool.h>
+	"coordenada.h"
+	"jogador.h"
+	"textura.h"
+
+1665153505 c:\users\ferna\documents\projetos codeblocks\minefake\minefake\headers\coordenada.h
+	<stdbool.h>
+
+1665109553 c:\users\ferna\documents\projetos codeblocks\minefake\minefake\headers\jogador.h
+	<stdio.h>
+	<stdbool.h>
+	<raylib.h>
+	"coordenada.h"
+	"textura.h"
+
+1665094654 c:\users\ferna\documents\projetos codeblocks\minefake\minefake\headers\textura.h
+	<raylib.h>
+
+1665153448 source:c:\users\ferna\documents\projetos codeblocks\minefake\minefake\src\coordenada.c
+	"../headers/coordenada.h"
+
+1665159199 source:c:\users\ferna\documents\projetos codeblocks\minefake\minefake\src\item.c
+	"../headers/item.h"
+
+1665159105 c:\users\ferna\documents\projetos codeblocks\minefake\minefake\headers\item.h
+	<raylib.h>
+	"mapa.h"
+
+1665109576 source:c:\users\ferna\documents\projetos codeblocks\minefake\minefake\src\jogador.c
+	"../headers/jogador.h"
+
+1665156087 source:c:\users\ferna\documents\projetos codeblocks\minefake\minefake\src\mapa.c
+	"../headers/mapa.h"
+	<stdio.h>
+	<raylib.h>
+
+1665156760 source:c:\users\ferna\documents\projetos codeblocks\minefake\minefake\src\menu.c
+	"../headers/menu.h"
+
+1665154143 c:\users\ferna\documents\projetos codeblocks\minefake\minefake\headers\menu.h
+	<raylib.h>
+	<stdio.h>
+	"mapa.h"
+	"save.h"
+	"rank.h"
+
+1665154168 c:\users\ferna\documents\projetos codeblocks\minefake\minefake\headers\save.h
+	"mapa.h"
+	"textura.h"
+	"rank.h"
+
+1665152800 c:\users\ferna\documents\projetos codeblocks\minefake\minefake\headers\rank.h
+	"jogador.h"
+
+1665158763 source:c:\users\ferna\documents\projetos codeblocks\minefake\minefake\src\movimentos.c
+	"../headers/movimentos.h"
+
+1665158755 c:\users\ferna\documents\projetos codeblocks\minefake\minefake\headers\movimentos.h
+	<stdbool.h>
+	<raylib.h>
+	"mapa.h"
+	"animacao.h"
+	"item.h"
+
+1665154944 source:c:\users\ferna\documents\projetos codeblocks\minefake\minefake\src\save.c
+	"../headers/save.h"
+
+1665159142 source:c:\users\ferna\documents\projetos codeblocks\minefake\minefake\src\sound.c
+	"../headers/sound.h"
+
+1664740047 c:\users\ferna\documents\projetos codeblocks\minefake\minefake\headers\sound.h
+	<raylib.h>
+
+1665093764 source:c:\users\ferna\documents\projetos codeblocks\minefake\minefake\src\textura.c
+	"../headers/textura.h"
+
+1665152788 source:c:\users\ferna\documents\projetos codeblocks\minefake\minefake\src\rank.c
+	<stdio.h>
+	"../headers/rank.h"
+
+1665159019 source:c:\users\ferna\documents\projetos codeblocks\minefake\minefake\main.c
+	<stdio.h>
+	<ctype.h>
+	<string.h>
+	<raylib.h>
+	<locale.h>
+	<stdbool.h>
+	<time.h>
+	"headers/coordenada.h"
+	"headers/jogador.h"
+	"headers/mapa.h"
+	"headers/menu.h"
+	"headers/animacao.h"
+	"headers/movimentos.h"
+	"headers/textura.h"
+	"headers/item.h"
+
